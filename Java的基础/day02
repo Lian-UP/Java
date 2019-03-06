@@ -1,0 +1,109 @@
+#Java基本类型数据的类型转换（掌握）
+	自动类型转换
+		小类型-->自动转换-->大类型
+		byte,-->short,char—>int—>long-->精度提升—>float—>double
+	强制类型转换
+		大类型-->强制转换-->小类型
+		int a=100;
+		byte a1=a+a;//编译器报错，需要强制类型转换
+		byte b=(byte) a;
+		强制类型转换有风险，经量避免，可能会发生精度丢失和溢出现象
+			面试题：
+			**byte char short 将整数字面量赋值给他们不需要强制类型转换
+			但不能超出范围（因为比较常用）
+			byte，short，char三种数据运算时会先转成int类型 
+###Java运算符（掌握）
+	1算数运算符
+	+   -   *   /   %（取余）
+	++:自增 ，增加一个单位
+	--：自减，减少一个单位
+  	int a=1;
+	a++;//a=a+1;
+	++:前++、后++
+		前++：++号在前  ++a
+		后++：++在后      a++
+			作用都是自增
+		区别：++a先自增，再取值
+		          a++先取值，再自增
+	2关系运算
+		>    >=   <   <=    ==(等于)    =（赋值）
+		!=（不等于）
+		关系运算是Boolean类型
+	3赋值运算
+		=     +=     -=     *=    /=
+			int a,b;
+			a=b=1;
+			a+=b;//等价于 a=a+b;
+			a-=b//a=a-b;
+			以此类推
+	4逻辑运算
+		&     |     ！
+		&&   ||
+		& 逻辑与 并且
+		| 逻辑或 或者
+		！逻辑非 取反
+		使用：
+			一般用于连接boolean类型的表达式或者值
+			表达式：就是用运算符把常量或者变量连接起来的符合Java语言的式子
+				算术表达式：a+b
+				比较表达式： a=b a<b
+		格式 ：表达式1&表达式2
+		&并且，运算符两边的表达式都为真时，与运算的结果为true
+			true&true  true
+			flase&true  false
+			true&flase flase
+			flase&flase flase
+		| 或者 运算符一边为true，则结果为true；两边都为flase结果是flase
+			true flase true
+			flase true true 
+			 true  true true
+			flase flase flase
+		!非	！true  flase
+			！flase  true
+			！！true  true
+		结论：      &逻辑与：有flase，则flase
+		               |逻辑或：有true，则true
+		               !非 取反
+		&&和||区别
+			执行的结果都一样
+			&&和||具有短路效果
+				&&，若左边为flase，则右边不执行（短路）
+				||，若左边为true，则右边不执行（短路）
+			在开发中使用&& ||
+	5三目运算符
+		格式：（关系表达式）？表达式1：表达式2
+		如果条件为true，运算后的结果是表达式1
+		如果条件为false，运算后的结果是表达式2
+		嵌套
+###两个工具类的使用
+	1 Java.util.Scanner  控制台扫描器（键盘录入）
+		Scanner使用：	1.导入 非本包 非Java.lang包下的类，若使用，需要提前导入
+				手动：import Java.util.Scanner
+				快捷键：CTRL+shiift+o
+				2创建对象 Scanner scaner=new Scanner(System.in);//引用类型
+				3适用对象的方法
+					sc.next();		可以从控制台接收字符串
+					sc.nextInt();	可以从控制台接收一个整数
+					sc.nextDouble();	可以从控制台接收浮点数
+					sc.nextLine();	以从控制台接收字符串
+					注意：可以从控制台接收的数据，必须定义对应的变量去接收，存储
+					int a=Scanner sc=new Scanner(System.in);
+					sc.next();	  sc.nextLine(); 区别
+					sc.nextLine(); 是以换行符为结束标识符
+					sc.next();	sc.nextInt();  sc.nextDouble(); ...是以空格为结束标识符
+	2 Java.util.Ramdom 生成随机数
+		Random使用
+			1导入
+				import Java.util.Ramdom
+			2创建对象
+				Ramdom ran=new Ramdom();
+			3调用方法
+				//获取一个整数
+				ran.nextInt(int number);
+				ran,nextInt(100);//[0,100] 0-99 之间的随机整数
+				ran,nextInt(100+1);//[0,100] 0-100
+				ran,nextInt(100)+1;//[0,100] 1-100
+				
+				
+
+
